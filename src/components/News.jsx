@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { FaBookmark, FaRegBookmark, FaShareAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -25,7 +26,7 @@ const News = ({myNews}) => {
                 <img className='mb-4' src={image_url} alt="" />
                 {
                     details.length <250 ? <>{details}</> : <>
-                    {details.slice(0,250)}...<Link className='ml-1 text-blue-500'>Read More</Link>
+                    {details.slice(0,250)}...<Link to={`/news/${_id}`} className='ml-1 text-blue-500'>Read More</Link>
                     </>
                 }
             </div>
