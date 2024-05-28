@@ -5,6 +5,7 @@ import LeftSideNav from '../Shared/LeftSideNav/LeftSideNav';
 import RightSideNav from '../Shared/RightSideNav/RightSideNav';
 import BreakingNews from './BreakingNews';
 import News from '../../components/News';
+import { Toaster } from 'react-hot-toast';
 
 const Home = () => {
     const [news,setNews] = useState([])
@@ -18,6 +19,7 @@ const Home = () => {
 
     return (
         <div>
+            <Toaster></Toaster>
             <Header></Header>
             <BreakingNews></BreakingNews>
             <Navbar></Navbar>

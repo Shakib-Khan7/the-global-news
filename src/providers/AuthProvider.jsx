@@ -4,10 +4,13 @@ import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 import { GoogleAuthProvider } from "firebase/auth";
+import toast from 'react-hot-toast';
+
 
 export const AuthContex = createContext(null)
 const auth = getAuth(app)
 const provider = new GoogleAuthProvider();
+
 
 
 const AuthProvider = ({children}) => {
@@ -46,20 +49,29 @@ const AuthProvider = ({children}) => {
 
 
     const handleBookMark = (news) =>{
+        
+       
         let newBookmark =[];
         const exists = bookmarked.find(name=>name._id === news._id )
 
         if(!exists){
             newBookmark = [...bookmarked, news]
+            toast.success('Added to Bookmarked')
+            
 
         }
         else{
             const remaining = bookmarked.filter(name=>name._id !==news._id);
             newBookmark = [...remaining,exists]
+            toast.error('Already bookmarked')
             
         }
         setBookmarked(newBookmark);
         console.log(newBookmark);
+        
+
+        
+        
 
     }
 
