@@ -18,17 +18,18 @@ const Navbar = () => {
         <li>
             <NavLink to='/'>Home</NavLink>
         </li>
-        <li>
-            <NavLink to='/about'>About</NavLink>
-        </li>
-        <li>
-            <NavLink to='/career'>Career</NavLink>
-        </li>
-        <li>
+        
+        
+        {
+            !user && <li>
             <NavLink to='/login'>Login</NavLink>
         </li>
+        }
         <li>
             <NavLink to='/register'>Sign up</NavLink>
+        </li>
+        <li>
+            <NavLink to='/bookmark'>Bookmark</NavLink>
         </li>
     </>
 
@@ -54,9 +55,12 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
+                        {
+                            user &&
+                            <div className="w-10 rounded-full">
                             <img alt="Tailwind CSS Navbar component" src={userPicture} />
                         </div>
+                        }
                     </div>
                     {
                         user ? <button onClick={handleSignOut} className='btn'>Signout</button> : <Link to='/login'>

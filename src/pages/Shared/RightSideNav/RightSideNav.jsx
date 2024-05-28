@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaTwitter } from "react-icons/fa";
 import qZone1 from '../../../assets/assets/qZone1.png'
 import qZone2 from '../../../assets/assets/qZone2.png'
 import qZone3 from '../../../assets/assets/qZone3.png'
+import { AuthContex } from '../../../providers/AuthProvider';
 
 const RightSideNav = () => {
+    const {googleLogIn,user} = useContext(AuthContex)
+
+    const handleGoogleLogin = () =>{
+        googleLogIn()
+        .then(result=>{
+            console.log(result.user);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
     return (
         <div>
+            {!user &&
             <div className='p-4 space-y-4 mb-6'>
-                <h2>Login with</h2>
-                <button className='btn btn-outline w-full'>
-                    <FaGoogle></FaGoogle>
-                    Login With Google
-                </button>
-                <button className='btn btn-outline w-full'>
-                    <FaGithub></FaGithub>
-                    Login With Github
-                </button>
+            <h2>Login with</h2>
+            {!user && <button onClick={handleGoogleLogin} className='btn btn-outline w-full'>
+                <FaGoogle></FaGoogle>
+                Login With Google
+            </button>}
+            {!user && <button className='btn btn-outline w-full'>
+                <FaGithub></FaGithub>
+                Login With Github
+            </button>}
 
 
-            </div>
+        </div>}
             <div className='p-4 mb-6'>
                 <h2 className='mb-4'>Find Us On</h2>
                 <a className='p-4 flex items-center text-lg border rounded-t-lg' href="">

@@ -19,7 +19,7 @@ const LeftSideNav = () => {
         <div className='space-y-6'>
             <h2>All Categories</h2>
             {
-                categories.map(category => <Link to={`/category/${category.id}`}
+                categories.map(category => <Link 
                     className='block ml-4 font-semibold'
 
                     key={category.id}> {category.name}
@@ -27,7 +27,7 @@ const LeftSideNav = () => {
 
                 </Link>)
             }
-            <div className="card card-compact bg-base-100 shadow-xl rounded-none">
+            <div className="card card-compact bg-base-100 shadow-xl rounded-none hidden lg:block">
                 <figure><img src={pic1} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-base">Find an orphan a home</h2>
@@ -40,7 +40,7 @@ const LeftSideNav = () => {
                     </div>
                 </div>
             </div>
-            <div className="card card-compact bg-base-100 shadow-xl rounded-none">
+            <div className="card card-compact bg-base-100 shadow-xl rounded-none  hidden lg:block">
                 <figure><img src={pic2} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-base">Book your flat on best deals!</h2>
@@ -53,7 +53,7 @@ const LeftSideNav = () => {
                     </div>
                 </div>
             </div>
-            <div className="card card-compact bg-base-100 shadow-xl rounded-none">
+            <div className="card card-compact bg-base-100 shadow-xl rounded-none  hidden lg:block">
                 <figure><img src={pic3} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-base">Live Screening of UCL 23-24</h2>

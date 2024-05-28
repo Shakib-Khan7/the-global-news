@@ -4,8 +4,9 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log('inside firebase',import.meta.env.VITE_PASS);
 const firebaseConfig = {
-  apiKey: "AIzaSyDuZW-MEUGIxQGXOAGsdotDE9iFw7rbAc8",
+  apiKey: import.meta.env.VITE_APIKEY,
   authDomain: "the-global-news-auth.firebaseapp.com",
   projectId: "the-global-news-auth",
   storageBucket: "the-global-news-auth.appspot.com",

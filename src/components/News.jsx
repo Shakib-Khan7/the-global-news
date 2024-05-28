@@ -1,13 +1,20 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaBookmark, FaRegBookmark, FaShareAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContex } from '../providers/AuthProvider';
 
 const News = ({myNews}) => {
     const {_id,image_url,title,details,author,total_view,rating} = myNews
+
+    const {handleBookMark} = useContext(AuthContex)
+
+    
+
+    
    
     return (
-        <div className=''>
+        <div className='mb-8'>
             <div className='flex h-16 bg-slate-100  mb-6 items-center p-3'>
                 <img className='w-8 h-8 rounded-full' src={author.img} alt="" />
 
@@ -16,7 +23,7 @@ const News = ({myNews}) => {
                     <p>{author.published_date}</p>
                 </div>
                 <div className='flex'>
-                    <button className='mr-2'><FaRegBookmark></FaRegBookmark></button>
+                    <button onClick={()=>handleBookMark(myNews)} className='mr-2'><FaRegBookmark></FaRegBookmark></button>
                     <button><FaShareAlt></FaShareAlt></button>
                 </div>
             </div>

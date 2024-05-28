@@ -27,7 +27,7 @@ const Home = () => {
                     <LeftSideNav></LeftSideNav>
                 </div>
                 <div className='col-span-2 border'>
-                    <h2>Global News Home {news.length}</h2>
+                    
                     {
                         news.map(n=> <News key={n._id}
 
