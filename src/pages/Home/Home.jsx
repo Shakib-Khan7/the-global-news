@@ -6,14 +6,14 @@ import RightSideNav from '../Shared/RightSideNav/RightSideNav';
 import BreakingNews from './BreakingNews';
 import News from '../../components/News';
 import { Toaster } from 'react-hot-toast';
+import { useLoaderData } from 'react-router-dom';
 
 const Home = () => {
     const [news,setNews] = useState([])
+    const data = useLoaderData()
 
     useEffect(()=>{
-        fetch('news.json')
-        .then(res=>res.json())
-        .then(data=>setNews(data))
+        setNews(data)
     },[])
 
 
