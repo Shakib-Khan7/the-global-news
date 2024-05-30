@@ -7,38 +7,36 @@ import SingleNews from "../pages/News/SingleNews";
 import PrivateRoute from "./PrivateRoute";
 import Bookmark from "../pages/Bookmark/Bookmark";
 
-
 const routes = createBrowserRouter([
     {
-        path : '/',
-        element : <Root></Root>,
-        children : [
+        path: '/',
+        element: <Root></Root>,
+        children: [
             {
-                path : '/',
-                element : <Home></Home>,
-                loader : ()=>fetch('http://localhost:5000/news')
+                path: '/',
+                element: <Home></Home>,
+                loader: () => fetch('/news.json')
             },
             {
-                path : '/news/:id',
+                path : '/newss/:id',
                 element : <PrivateRoute><SingleNews></SingleNews></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
-            },
-            {
-                path : '/login',
-                element : <Login></Login>
-            },
-            {
-                path : '/register',
-                element : <Register></Register>
-            },
-            {
-                path : '/bookmark',
-                element : <PrivateRoute><Bookmark></Bookmark></PrivateRoute>
+                loader : ()=>fetch('news.json')
             },
             
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
+                path: '/bookmark',
+                element: <PrivateRoute><Bookmark></Bookmark></PrivateRoute>
+            },
         ]
     },
-   
 ]);
 
 export default routes;

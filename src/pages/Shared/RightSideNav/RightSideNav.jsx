@@ -11,6 +11,7 @@ const RightSideNav = () => {
     const handleGoogleLogin = () =>{
         googleLogIn()
         .then(result=>{
+           
             console.log(result.user);
         })
         .catch(error=>{

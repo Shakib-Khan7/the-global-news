@@ -20,6 +20,7 @@ const Login = () => {
         logIn(email,password)
         .then(result=>{
             console.log(result.user);
+            
             //navigate after login
             navigate(location?.state ? location.state : '/')
         })
